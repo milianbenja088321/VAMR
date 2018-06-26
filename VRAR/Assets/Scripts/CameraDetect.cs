@@ -14,6 +14,8 @@ public class CameraDetect : MonoBehaviour
 
     public float deltaTime;
     // Use this for initialization
+
+
     void Start()
     {
         //WebCamDevice[] devices = WebCamTexture.devices;
@@ -34,15 +36,16 @@ public class CameraDetect : MonoBehaviour
         //cam = mycam;
         //mycam.Play();
         Application.targetFrameRate = 60;
+        Application.RequestUserAuthorization(UserAuthorization.WebCam);
         WebCamDevice[] devices = WebCamTexture.devices;
         Debug.Log("Number of web cams connected: " + devices.Length);
         Renderer rend = this.GetComponentInChildren<Renderer>();
-
+        
         for (int i = 0; i < devices.Length; i++)
         {
             Debug.Log(i + ": " + devices[i].name);
         }
-        WebCamTexture mycam = new WebCamTexture(1920, 1080, 60);
+        WebCamTexture mycam = new WebCamTexture(1920, 1080, 180);
 
         string camName = devices[2].name;
         Debug.Log("The webcam name is " + camName);

@@ -17,9 +17,6 @@ public class PlayerScript : NetworkBehaviour
     {
         if (!isLocalPlayer) return;
 
-        //GameObject thePlayer = GameObject.FindGameObjectWithTag("MainCamera");
-        //this.transform.position = thePlayer.transform.position;
-        //this.transform.rotation = thePlayer.transform.rotation;
         GameObject ARCam = GameObject.Find("ARCamera");
 
         if (ARCam != null)

@@ -22,7 +22,7 @@ public class Health : NetworkBehaviour
 
     public void TakeDamage(int _amount)
     {
-        if (isServer == false)
+        if (isServer == false) // server only allowed to change game state
             return;
 
         currentHealth -= _amount;
@@ -42,12 +42,18 @@ public class Health : NetworkBehaviour
         
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     [Command]
     void CmdSetActive()
     {
         RpcSetActive();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ClientRpc]
     private void RpcSetActive()
     {
